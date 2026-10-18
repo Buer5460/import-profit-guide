@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>算了2年利润才发现账算错了？三处漏算拆解 | 到仓成本与盈亏平衡算法</title>
+<meta name="description" content="亚马逊卖家月销5万美金却少了5000，钱去哪了？三处漏算拆解：到仓成本没算全、销售端费用没归集、平台预留金与汇损。附盈亏平衡售价公式与免费测算器。">
+<style>
+:root{--ink:#141a20;--sub:#5b6774;--line:#e2e6ea;--accent:#c8452f;--accent2:#1f6f5c;--warn:#b8860b;--card:#f7f8f9;--blue:#2a5d8f}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:var(--ink);font-family:-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;font-size:15px;line-height:1.75}
+.wrap{max-width:780px;margin:0 auto;padding:36px 22px 70px}
+header{border-bottom:3px solid var(--ink);padding-bottom:20px;margin-bottom:30px}
+.kick{font-size:11.5px;letter-spacing:.14em;color:var(--accent);font-weight:700;margin-bottom:10px}
+h1{font-size:29px;line-height:1.28;margin:0 0 10px;letter-spacing:-.4px}
+.meta{font-size:12.5px;color:var(--sub)}
+h2{font-size:19px;margin:34px 0 14px;padding-bottom:9px;border-bottom:2px solid var(--line)}
+h3{font-size:16px;margin:22px 0 8px;color:#2b3540}
+p{margin:0 0 14px}
+.lead{font-size:16px;color:#2b3540}
+blockquote{margin:0 0 18px;padding:12px 16px;background:var(--card);border-left:4px solid var(--sub);
+  font-size:14px;color:#3a4652;border-radius:0 6px 6px 0}
+blockquote strong{color:var(--ink)}
+pre{background:#f6f8fa;border:1px solid var(--line);border-radius:6px;padding:14px 16px;
+  overflow-x:auto;font-size:13.5px;line-height:1.6;margin:0 0 16px}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+ul,ol{margin:0 0 16px;padding-left:22px}
+li{margin-bottom:8px}
+.box{background:#fdf8ec;border:1px solid #f0e2be;border-left:4px solid var(--warn);
+  border-radius:6px;padding:14px 17px;margin:18px 0;font-size:14px}
+.box .h{font-weight:700;color:var(--warn);margin-bottom:6px}
+.cta{background:linear-gradient(180deg,#fff,#fbf4f2);border:1px solid #f0d5cf;
+  border-left:5px solid var(--accent);border-radius:8px;padding:20px 22px;margin:28px 0}
+.cta .h{font-weight:800;color:var(--accent);font-size:14px;margin-bottom:8px;letter-spacing:.03em}
+.btn{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;
+  border-radius:6px;padding:12px 24px;font-weight:700;font-size:15px;margin-top:10px}
+.btn:hover{background:#2b3540}
+.stat-grid{display:grid;gap:12px;grid-template-columns:repeat(3,1fr);margin:18px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:13px}
+.stat .v{font-size:20px;font-weight:800;color:var(--accent)}
+.stat .l{font-size:11.5px;color:var(--sub);margin-top:4px}
+.disc{font-size:12px;color:var(--sub);border-top:1px solid var(--line);
+  padding-top:16px;margin-top:34px;line-height:1.7}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:14px 0}
+th{background:#eef1f4;text-align:left;padding:9px 11px;font-size:12px;border-bottom:2px solid #d3d9df}
+td{padding:8px 11px;border-bottom:1px solid var(--line)}
+@media(max-width:640px){.wrap{padding:24px 16px 50px}h1{font-size:23px}.stat-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kick">CROSS-BORDER · PROFIT</div>
+  <h1>算了 2 年利润才发现账算错了？<br>三处漏算拆解，附盈亏平衡算法</h1>
+  <div class="meta">面向从中国/东南亚采购销往美国的跨境卖家 · 2026-10-18</div>
+</header>
+
+<p class="lead">一位深圳卖家最近发现：这个月卖了 5 万美金，按自己的算法应该赚 2 万多，<strong>实际到账只有 1.5 万</strong>。差的 5000 去哪了？</p>
+
+<p>这个问题在跨境圈非常常见。而且答案通常不是"一处算错"，是<strong>三处叠加</strong>。</p>
+
+<div class="stat-grid">
+  <div class="stat"><div class="v">30%–60%</div><div class="l">FOB 到真实到仓成本的常见差距</div></div>
+  <div class="stat"><div class="v">$150–400</div><div class="l">报关行费用 / 票</div></div>
+  <div class="stat"><div class="v">4 倍</div><div class="l">CBP 重大过失罚则（未付税额）</div></div>
+</div>
+
+<h2>先给结论</h2>
+<p>多数人用的算法是「采购价 + 头程 + FBA 费，售价一减」。<strong>这个算法只覆盖了到仓前的成本</strong>，而实际扣的钱远不止这三项。</p>
+
+<h2>第一处：到仓成本本身就漏了</h2>
+<p>FOB 价到真实到仓成本通常差 <strong>30%–60%</strong>。你算的"头程"如果只是海运费，下面这些多半没算：</p>
+<ul>
+  <li><strong>MPF 商品处理费</strong>——有最低费和上限，别按每个 SKU 重复套最低费</li>
+  <li><strong>HMF 港口维护费</strong>——仅海运</li>
+  <li><strong>报关行费用</strong>——$150–400/票。卖 100 件就是 $1.5/件</li>
+  <li><strong>关税保证金</strong>（Customs Bond）</li>
+  <li><strong>内陆运输 + 仓储</strong></li>
+  <li><strong>关税</strong>——中国原产多数品类还有 Section 301 附加层，不只基础税率</li>
+</ul>
+<div class="box">
+  <div class="h">一个直观的算法</div>
+  一票货 $150 报关费，卖 100 件 = 每件 $1.5。没算进去，就是每件白亏 $1.5。
+</div>
+
+<h2>第二处：销售端费用没归集</h2>
+<p>广告费、仓储费、退货、FBA 配送——这些是<strong>销售变动费用</strong>，不是进口成本，但直接影响利润。建议分两堆记：</p>
+<table>
+  <thead><tr><th>到仓成本（进口环节）</th><th>销售变动费用（销售环节）</th></tr></thead>
+  <tbody>
+    <tr><td>采购 + 物流 + 关税 + 清关</td><td>平台佣金 + 支付费 + FBA 配送 + 广告 + 退货损耗</td></tr>
+  </tbody>
+</table>
+<p>分清楚之后，才算得出这个关键数字：</p>
+<pre><code>盈亏平衡售价 = (到仓成本 + 单件固定销售费用) / (1 - 销售费用率)</code></pre>
+<p>低于这个价，<strong>卖一件亏一件，销量越大亏得越多</strong>。</p>
+
+<h3>举个真实口径的例子</h3>
+<pre><code>采购 8.00 + 运保 1.20 + 关税 2.00 + 清关 0.80 = 到仓 12.00
+售价 19.90，销售变动费用 5.00
+贡献利润 = 19.90 - 12.00 - 5.00 = 2.90
+贡献利润率 = 2.90 / 19.90 = 14.57%
+
+若关税涨到 2.80：
+到仓 12.80 → 贡献利润 2.10 → 利润率 10.55%
+卖出 1000 件，少赚 800.00</code></pre>
+
+<h2>第三处：预留金和汇损（这块要单独走对账）</h2>
+<p>坦白说，<strong>预留金（Account Level Reserve）和汇损属于亚马逊后台结算侧数据</strong>，不是进口环节能算出来的。要去后台 Settlement Report 里导，或用 ERP 拉。</p>
+<p>所以建议分两条线：</p>
+<ol>
+  <li><strong>进口到仓 + 盈亏平衡</strong> → 用成本测算工具</li>
+  <li><strong>平台对账</strong> → 导结算报告 / 上 ERP</li>
+</ol>
+<div class="box">
+  <div class="h">混在一起算，永远对不上</div>
+  这是很多人"账算不平"的根因——不是算错，是<strong>两类数据混在一个口径里</strong>。
+</div>
+
+<h2>顺带提醒：比算错更危险的是编码</h2>
+<p>供应商或货代给的 HTS 编码是最大的错误来源。有卖家 1,200 个 SKU 全用采购代理给的编码，跑了一遍发现 <strong>38% 被建议改用不同的 10 位码</strong>。</p>
+<p>作为 FBA 卖家，你是 <strong>Importer of Record</strong>——罚款落在你自己的 EIN 上，亚马逊不帮你扛。CBP 重大过失罚则是 <strong>4 倍未付税额</strong>，且审查可追溯五年。</p>
+<p>归类建议必须由<strong>持牌报关人</strong>确认。这一点任何工具都不能替你做。</p>
+
+<div class="cta">
+  <div class="h">免费测算你的真实成本</div>
+  <p style="margin:0 0 6px">输入采购价和运费，30 秒算出：单件到仓成本、到仓 vs FOB 涨幅、盈亏平衡售价、目标利润率对应售价。</p>
+  <p style="margin:0 0 6px;font-size:13.5px">会把你<strong>没确认的成本项单独列出</strong>（MPF、HMF、附加税层），不会把未知税费当 0 糊弄你。不用注册。</p>
+  <a class="btn" href="https://buer5460.github.io/import-cost-calculator/?utm_source=article&utm_medium=content&utm_campaign=profit-miscalc">免费测算 →</a>
+</div>
+
+<div class="disc">
+  <strong>数据来源与边界：</strong>FOB 到仓 30%–60% 涨幅、报关费 $150–400、MPF/HMF 说明引自 Ship4wd《Common Importing Mistakes SMBs Make》；38% 案例、4 倍罚则、IOR 责任引自 Ecommerce Times（2026-06，引 NCBFAA 2026-05 数据）；算例为合成测试样例，不代表任何商品实际税率。<br><br>
+  本页提供基于你所输入费率的已知成本测算，<strong>不构成报关或法律意见</strong>。HTS 归类建议须由持牌报关人复核。不保证"可以进口""关税完全准确"或"必定赚钱"。贡献利润不等于净利润。
+</div>
+
+</div>
+</body>
+</html>
